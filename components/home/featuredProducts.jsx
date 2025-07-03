@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("/api/products/get");
+        const res = await fetch("http://localhost:3000/api/products/get");
         if (res.ok) {
           const products = await res.json();
           setFeaturedProducts(products.filter((elem) => elem.featured));
