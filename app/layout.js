@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import { CartProvider } from "@/contexts/CartContext";
+import Header from "@/components/Header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -59,11 +60,13 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <CartProvider>
-          <div className=" pt-20">
-            <Navbar />
+        
+            <Header/>
+            <main className="min-h-screen">
             {children}
+            </main>
             <Footer />
-          </div>
+          
           <ToastContainer position="top-right" autoClose={3000} hideProgressBar newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
         </CartProvider>
       </body>
