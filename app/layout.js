@@ -60,12 +60,13 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <CartProvider>
-        
+        <div className="pt-20">
             <Header/>
             <main className="min-h-screen">
             {children}
             </main>
             <Footer />
+            </div>
           
           <ToastContainer position="top-right" autoClose={3000} hideProgressBar newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="colored" />
         </CartProvider>
