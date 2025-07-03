@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
     const fetchProducts = async () => {
       try {
         const res = await fetch("http://localhost:3000/api/products/get");
-        if (res.ok) {
+        if (res.status === '200') {
           const products = await res.json();
           setFeaturedProducts(products.filter((elem) => elem.featured));
         } else {
