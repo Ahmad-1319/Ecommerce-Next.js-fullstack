@@ -23,7 +23,7 @@ export const metadata = {
   openGraph: {
     title: "Pixo Deals - Best Online Shopping Deals",
     description: "Shop the latest deals on electronics, fashion, and more at Pixo Deals.",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     siteName: "Pixo Deals",
     images: [
       {
@@ -43,6 +43,7 @@ export const metadata = {
     creator: "@yourtwitter",
     images: ["/og-image.png"],
   },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
 };
 
 export const viewport = {

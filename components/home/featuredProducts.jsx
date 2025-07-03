@@ -1,12 +1,34 @@
-
+"use client";
+import { useEffect, useState } from "react";
 import ProductCard from "../productCard"
 
-const FeaturedProducts = async () => {
-    const res =  await fetch('http://localhost:3000/api/products/get')
-    const products = await res.json()
-const featuredProducts= products.filter((elem)=>{
-return elem.featured
-})
+const FeaturedProducts = () => {
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("/api/products/get");
+        if (res.ok) {
+          const products = await res.json();
+          setFeaturedProducts(products.filter((elem) => elem.featured));
+        } else {
+          setFeaturedProducts([]);
+        }
+      } catch (e) {
+        setFeaturedProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center py-10">Loading featured products...</div>;
+  }
+
   return (
     <>
          <h1 className='text-4xl sm:text-5xl text-center'>Featured Products</h1>

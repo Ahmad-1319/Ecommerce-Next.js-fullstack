@@ -232,9 +232,9 @@ export default function Order({ orderId }) {
                 <div className="flex justify-between">
                   <span className="text-gray-600">Payment Status</span>
                   <span className={`font-medium ${
-                    order.paymentMethod === "cod" ? "text-yellow-600" : "text-green-600"
+                    order.paymentMethod === "cod"&& order.status === 'delivered' ? "text-green-600" : "text-yelow-600"
                   }`}>
-                    {order.paymentMethod === "cod" ? "Pending" : "Paid"}
+                    {order.paymentMethod === "cod" && order.status === 'delivered'? "Paid" : "Pending"}
                   </span>
                 </div>
               </div>

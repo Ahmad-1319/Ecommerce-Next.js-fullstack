@@ -172,9 +172,9 @@ export default function OrdersList() {
                           </p>
                           <p className="text-gray-600">
                             Status: <span className={`font-medium ${
-                              order.paymentMethod === "cod" ? "text-yellow-600" : "text-green-600"
+                              order.paymentMethod === "cod" && order.status === 'delivered' ? "text-green-600" : "text-yellow-600"
                             }`}>
-                              {order.paymentMethod === "cod" ? "Pending" : "Paid"}
+                              {order.paymentMethod === "cod"&& order.status === 'delivered' ? "Paid" : "Pending"}
                             </span>
                           </p>
                         </div>
